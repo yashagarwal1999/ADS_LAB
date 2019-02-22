@@ -1,0 +1,230 @@
+//============================================================================
+// Name        : Ads_01_traversal.cpp
+// Author      : yash
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+class node
+{
+	int data;
+	node *left,*right;
+
+public:
+node()
+{
+	left=NULL;
+	right=NULL;
+}
+	node(int d)
+{
+		data=d;
+		left=NULL;
+		right=NULL;
+}
+	friend class tree;
+	friend class stack;
+};
+class stack
+{
+	node* s;
+	int top;
+public:
+	stack(int n)
+{
+		s=new node[n];
+		top=-1;
+}
+	void push(node r)
+	{
+		s[++top]=r;
+	}
+	node pop()
+	{
+		return s[top--];
+	}
+};
+class tree
+{
+ 	node* root;
+	int count,ht;
+public:
+	tree(int n)
+{
+		root=NULL;
+		count=n;
+ht=0;
+}
+	void insert()
+	{
+		int d;
+		cout<<"Enter the element to be insert"<<endl;
+		cin>>d;
+		node *temp=root;
+		if(root==NULL)
+		{
+		root=new node(d);
+
+		return;
+		}
+		int side;
+		node *temp1=new node(d);
+		while(1)
+		{
+			cout<<"1.insert at left 2.insert at right of"<<temp->data<<endl;
+			cin>>side;
+			if(side==1)
+			{
+				if(temp->left==NULL)
+				{
+					temp->left=temp1;
+
+					return;
+				}
+				temp=temp->left;
+			}
+			else
+			{
+				if(temp->right==NULL)
+				{
+					temp->right=temp1;
+
+					return;
+				}
+				temp=temp->right;
+			}
+		}
+
+	}
+	void preoder(node* r)
+	{
+if(r==NULL)
+{
+	return;
+}
+cout<<r->data<<" ";
+preoder(r->left);
+preoder(r->right);
+	}
+
+
+	void pre()
+	{
+		preoder(root);
+	}
+	void postorder(node* r)
+	{
+		if(r==NULL)
+		{
+			return;
+		}
+		postorder(r->left);
+		postorder(r->right);
+		cout<<r->data<<" ";
+	}
+	int height()
+	{
+
+		return ht;
+
+	}
+	void pos()
+	{
+		postorder(root);
+	}
+	void print()
+	{
+		ht=(log2(count+1))-1;
+node *arr[ht];
+
+arr[0]=root;
+for(int i=0;i<ht-2;i++)
+{
+	if(arr[i]!=NULL)
+	{
+	cout<<arr[i]->data<<" ";
+	arr[i+1]=arr[i]->left;
+
+
+
+}
+}
+	}
+	void preorderN()
+	{
+		stack s(count);
+		node* temp=root;
+		int n=count;
+		while(n--)
+		{
+		while(temp!=NULL)
+		{
+			cout<<temp->data<<" ";
+			s.push(temp->left);
+		}
+		temp=s.pop();
+		temp=temp->right;
+		if(temp==NULL)
+		{
+			temp=s.pop();
+			temp-temp->right;
+		}
+
+	}
+	}
+};
+
+int main() {
+cout<<"Enter the number of nodes"<<endl;
+int n,i,opt;
+cin>>n;
+tree t(n);
+for(i=0;i<n;i++)
+{
+t.insert();
+}
+while(1){
+	cout<<"1.Preoder using recursion 2.Postorder Using recursion 3.Preoder iterative 4.postorder iterative 5.height 6.copy to another tree 7.exit"<<endl;
+	cin>>opt;
+	switch(opt)
+	{
+	case 1:
+	{
+		t.pre();
+		break;
+	}
+	case 2:
+	{
+		t.pos();
+		break;
+	}
+	case 3:
+	{
+		t.preorderN();
+		break;
+	}
+	case 4:
+	{
+		break;
+	}
+	case 5:
+	{
+		break;
+	}
+	case 6:
+		{
+			break;
+		}
+	case 7:
+		{
+			return 0;
+		}
+	}
+	}
+
+	return 0;
+}

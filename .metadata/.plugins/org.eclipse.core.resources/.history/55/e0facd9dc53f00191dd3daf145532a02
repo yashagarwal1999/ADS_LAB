@@ -1,0 +1,115 @@
+//============================================================================
+// Name        : Assignment6_ads.cpp
+// Author      : yash
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+using namespace std;
+string key="abcdefghijklmnopqestuvwxyz";
+int it=0;
+class node
+{
+	string key1,val;
+	node* next;
+public:
+	node()
+{
+		next=NULL;
+}
+	node(string k,string v)
+	{
+		key1=k;
+		val=v;
+	}
+	friend class hash
+};
+class hash
+{
+	node* arr[100];
+public:
+	void hashh(string k,string v)
+	{
+		it=0;
+		int n=k.length();
+		int sum=0;
+	for(int i=0;i<n;i++)
+	{
+		sum+=(k[i] ^ key[it]);
+		it=(it+1)%26;
+	}
+	int k1=sum%100;
+	cout<<"1.with replacement 2.Without replacement"<<endl;
+	int x;
+	cin>>x;
+	if(x==1)
+	{
+		without(k,v,k1);
+	}
+	else
+	{
+		with(k,v,k1);
+	}
+
+
+	}
+	void without(string k,string v,int x)
+	{
+		node* t=new node(k,v);
+		if(arr[x]==NULL)
+			{
+			arr[x]=t;
+			return;
+			}
+		else
+		{
+			node* head=arr[x];
+			while(head->next!=NULL)
+			{
+				head=head->next;
+			}
+			head->next=t;
+
+		}
+	}
+
+	void with(string k,string v,int x)
+	{
+		node* t=new node(k,v);
+
+		arr[x]=t;
+	}
+	void find(string k)
+	{
+		it=0;
+		int n=k.length();
+				int sum=0;
+			for(int i=0;i<n;i++)
+			{
+				sum+=(k[i] ^ key[it]);
+				it=(it+1)%26;
+			}
+			int k1=sum%100;
+			node* t=arr[k1];
+			while(t->next!=NULL && t->key1!=k)
+			{
+				t=t->next;
+			}
+			if(t->key1==k)
+			{
+				cout<<"FOUND The value of k is "<<t->val<<endl;
+			}
+			else
+			{
+				cout<<"NOT FOUND"<<endl;
+			}
+	}
+
+
+};
+int main() {
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	return 0;
+}

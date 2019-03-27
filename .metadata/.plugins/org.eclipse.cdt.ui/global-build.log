@@ -1,39 +1,19 @@
-14:53:23 **** Incremental Build of configuration Debug for project Ads_04_graph_list ****
+09:46:16 **** Incremental Build of configuration Debug for project Assignment6_ads ****
 make all 
-Building file: ../src/Ads_04_graph_list.cpp
+Building file: ../src/Assignment6_ads.cpp
 Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ads_04_graph_list.d" -MT"src/Ads_04_graph_list.d" -o "src/Ads_04_graph_list.o" "../src/Ads_04_graph_list.cpp"
-../src/Ads_04_graph_list.cpp: In member function ‘void graph::deletedge(char, char)’:
-Finished building: ../src/Ads_04_graph_list.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment6_ads.d" -MT"src/Assignment6_ads.d" -o "src/Assignment6_ads.o" "../src/Assignment6_ads.cpp"
+../src/Assignment6_ads.cpp: In function ‘int main()’:
+../src/Assignment6_ads.cpp:154:10: warning: unused variable ‘n’ [-Wunused-variable]
+  int opt,n;
+          ^
+Finished building: ../src/Assignment6_ads.cpp
  
-Building target: Ads_04_graph_list
-../src/Ads_04_graph_list.cpp:54:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Building target: Assignment6_ads
 Invoking: GCC C++ Linker
-  for(i=0;i<v[a-'a'].size();i++)
-g++  -o "Ads_04_graph_list"  ./src/Ads_04_graph_list.o   
-                          ^
-../src/Ads_04_graph_list.cpp: In member function ‘int graph::indeg(char)’:
-../src/Ads_04_graph_list.cpp:71:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-   for(j=0;j<v[i].size();j++){
-                       ^
-../src/Ads_04_graph_list.cpp: In member function ‘void graph::dfs()’:
-../src/Ads_04_graph_list.cpp:107:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-   for(int i=0;i<v[temp].size();i++){
-                              ^
-../src/Ads_04_graph_list.cpp: In member function ‘void graph::deletevertex(char)’:
-../src/Ads_04_graph_list.cpp:123:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-   for(j=0;j<v[i].size();j++)
-                       ^
-../src/Ads_04_graph_list.cpp: In member function ‘void graph::bfs()’:
-../src/Ads_04_graph_list.cpp:147:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-     for(int i=0;i<v[temp].size();i++){
-                                ^
-../src/Ads_04_graph_list.cpp: In function ‘int main()’:
-../src/Ads_04_graph_list.cpp:163:5: warning: unused variable ‘n’ [-Wunused-variable]
- int n,opt;
-     ^
-Finished building target: Ads_04_graph_list
+g++  -o "Assignment6_ads"  ./src/Assignment6_ads.o   
+Finished building target: Assignment6_ads
  
-14:53:25 **** Incremental Build of configuration Debug for project Ads_04_graph_list ****
+09:46:17 **** Incremental Build of configuration Debug for project Assignment6_ads ****
 make all 
 make: Nothing to be done for `all'.

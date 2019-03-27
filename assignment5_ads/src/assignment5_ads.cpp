@@ -1,0 +1,135 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+class matrix
+{
+	int **arr;
+	int n;
+public:
+	matrix()
+{
+		cout<<"Enter the value of n"<<endl;
+		int a;
+		cin>>a;
+		n=a;
+		arr=new int*[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=new int[n];
+			for(int j=0;j<n;j++)
+			{
+				arr[i][j]=0;
+			}
+		}
+
+}
+	void accept()
+	{
+
+		int a,b,c,opt,wt;
+		while(1)
+		{
+			cout<<"1.Add connection 2.stop"<<endl;
+			cin>>opt;
+			switch(opt)
+			{
+			case 1:
+			{
+				cout<<"Enter the edge and wt"<<endl;
+				cin>>a>>b>>wt;
+				arr[a-1][b-1]=wt;
+				break;
+			}
+			case 2:
+			{
+				return;
+			}
+			}
+		}
+	}
+	friend class vertex;
+	friend class graph;
+
+};
+class vertex
+{
+int a,b,wt;
+public:
+vertex()
+{
+	a=b=wt=-1;
+}
+vertex(int aa,int ab,int ac)
+{
+	wt=ac;
+	a=aa;
+	b=ab;
+}
+bool operator <(const vertex &a)const
+{
+	return wt<a.wt;
+}
+friend class graph;
+};
+class graph
+{
+	vector<vertex>v;
+public:
+	graph()
+{
+		matrix m;
+		m.accept();
+		for(int i=0;i<m.n;i++)
+				{
+					for(int j=0;j<m.n;j++)
+					{
+						if(m.arr[i][j]!=0)
+						{
+						vertex x(i,j,m.arr[i][j]);
+						v.push_back(x);
+						}
+					}
+				}
+
+}
+int kruskal()
+{
+	sort(v.begin(),v.end());
+
+	int i,n=v.size();
+	int parent[n];
+	int cost=0,j;
+
+	for(i=0;i<n;i++)
+	{
+		parent[i]=i;
+	}
+for(i=0;i<n;i++)
+{
+	if(parent[v[i].a]!=parent[v[i].b])
+	{
+		cost+=v[i].wt;
+int oldid=parent[v[i].a],newid=parent[v[i].b];
+		for(j=0;j<n;j++)
+			{
+
+			if(parent[j]==oldid)
+			{
+				parent[j]=newid;
+			}
+			}
+	}
+}
+return cost;
+
+}
+};
+int main()
+{
+	graph g;
+	cout<<"The minimum weight is "<<g.kruskal()<<endl;
+	return 0;
+}
+
+
+

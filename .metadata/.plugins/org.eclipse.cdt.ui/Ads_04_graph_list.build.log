@@ -1,6 +1,39 @@
-14:53:25 **** Incremental Build of configuration Debug for project Ads_04_graph_list ****
+09:08:29 **** Incremental Build of configuration Debug for project Ads_04_graph_list ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/Ads_04_graph_list.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ads_04_graph_list.d" -MT"src/Ads_04_graph_list.d" -o "src/Ads_04_graph_list.o" "../src/Ads_04_graph_list.cpp"
+../src/Ads_04_graph_list.cpp: In member function ‘void graph::deletedge(char, char)’:
+../src/Ads_04_graph_list.cpp:54:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(i=0;i<v[a-'a'].size();i++)
+                          ^
+../src/Ads_04_graph_list.cpp: In member function ‘int graph::indeg(char)’:
+../src/Ads_04_graph_list.cpp:71:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(j=0;j<v[i].size();j++){
+                       ^
+../src/Ads_04_graph_list.cpp: In member function ‘void graph::dfs()’:
+../src/Ads_04_graph_list.cpp:107:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Finished building: ../src/Ads_04_graph_list.cpp
+ 
+Building target: Ads_04_graph_list
+   for(int i=0;i<v[temp].size();i++){
+                              ^
+../src/Ads_04_graph_list.cpp: In member function ‘void graph::deletevertex(char)’:
+Invoking: GCC C++ Linker
+g++  -o "Ads_04_graph_list"  ./src/Ads_04_graph_list.o   
+../src/Ads_04_graph_list.cpp:123:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(j=0;j<v[i].size();j++)
+                       ^
+../src/Ads_04_graph_list.cpp: In member function ‘void graph::bfs()’:
+../src/Ads_04_graph_list.cpp:147:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i=0;i<v[temp].size();i++){
+                                ^
+../src/Ads_04_graph_list.cpp: In function ‘int main()’:
+../src/Ads_04_graph_list.cpp:163:5: warning: unused variable ‘n’ [-Wunused-variable]
+ int n,opt;
+     ^
+Finished building target: Ads_04_graph_list
+ 
 
-14:53:25 Build Finished (took 64ms)
+09:08:31 Build Finished (took 1s.791ms)
 

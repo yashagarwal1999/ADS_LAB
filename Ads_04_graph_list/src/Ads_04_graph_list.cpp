@@ -92,7 +92,7 @@ void dfs()
 	bool visi[26];
 	memset(visi,false,sizeof(visi));
 	stack<int>s;
-	stack<int>s1;
+
 	s.push(f-'a');
 	visi[f-'a']=true;
 

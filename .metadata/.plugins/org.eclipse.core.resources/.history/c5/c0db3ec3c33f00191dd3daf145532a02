@@ -1,0 +1,24 @@
+//============================================================================
+// Name        : Assignment6_ads.cpp
+// Author      : yash
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+	string key,val;
+	node* next;
+public:
+	node()
+{
+		next=NULL;
+}
+};
+int main() {
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	return 0;
+}

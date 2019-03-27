@@ -1,4 +1,4 @@
-13:26:28 **** Incremental Build of configuration Debug for project Ads_01_traversal ****
+09:08:22 **** Build of configuration Debug for project Ads_01_traversal ****
 make all 
 Building file: ../src/Ads_01_traversal.cpp
 Invoking: GCC C++ Compiler
@@ -795,5 +795,5 @@ In file included from /usr/include/sched.h:28:0,
               ^
 make: *** [src/Ads_01_traversal.o] Error 1
 
-13:26:30 Build Finished (took 2s.227ms)
+09:08:28 Build Finished (took 5s.801ms)
 

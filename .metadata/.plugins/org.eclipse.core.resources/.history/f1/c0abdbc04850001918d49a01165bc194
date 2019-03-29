@@ -24,12 +24,19 @@ public:
 		key1=k;
 		val=v;
 	}
-	friend class hash
+	friend class hash;
 };
 class hash
 {
 	node* arr[100];
 public:
+hash()
+{
+for(int i=0;i<100;i++)
+{
+arr[i]=NULL;
+}
+}
 	void hashh(string k,string v)
 	{
 		it=0;
@@ -40,17 +47,19 @@ public:
 		sum+=(k[i] ^ key[it]);
 		it=(it+1)%26;
 	}
+//cout<<sum<<endl;
 	int k1=sum%100;
 	cout<<"1.with replacement 2.Without replacement"<<endl;
 	int x;
 	cin>>x;
 	if(x==1)
 	{
-		without(k,v,k1);
+with(k,v,k1);
+
 	}
 	else
 	{
-		with(k,v,k1);
+				without(k,v,k1);
 	}
 
 
@@ -93,6 +102,12 @@ public:
 			}
 			int k1=sum%100;
 			node* t=arr[k1];
+if(t==NULL)
+{
+				cout<<"NOT FOUND"<<endl;
+return;
+}
+
 			while(t->next!=NULL && t->key1!=k)
 			{
 				t=t->next;
@@ -107,9 +122,65 @@ public:
 			}
 	}
 
+	void del(string k)
+	{
+		it=0;
+				int n=k.length();
+				int sum=0;
+			for(int i=0;i<n;i++)
+			{
+				sum+=(k[i] ^ key[it]);
+				it=(it+1)%26;
+			}
+			int k1=sum%100;
+cout<<k1<<endl;
+			if(arr[k1]==NULL)
+			{
+				cout<<"Key not present"<<endl;
+				return;
+			}
+			node *curr=arr[k1],*prev=NULL;
+if(curr->next==NULL)
+{
+arr[k1]=NULL;
+delete(curr);
+return;
+}
+if(curr->key1==k)
+{
+arr[k1]=curr->next;
+delete(curr);
+return;
+}
+			while(curr!=NULL)
+			{
+prev=curr;
+				if(curr->key1==k)
+				{
+					break;
+				}
+
+				curr=curr->next;
+
+			}
+			prev->next=curr->next;
+			delete(curr);
+
+	}
+	void print()
+	{
+		for(int i=0;i<100;i++)
+		{
+			node* j=arr[i];
+			while(j!=NULL)
+			{
+				cout<<j->key1<<" "<<j->val<<endl;
+				j=j->next;
+			}
+		}
+	}
+
+
 
 };
 int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	return 0;
-}

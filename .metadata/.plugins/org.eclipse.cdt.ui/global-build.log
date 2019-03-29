@@ -1,19 +1,19 @@
-09:46:16 **** Incremental Build of configuration Debug for project Assignment6_ads ****
+09:59:29 **** Incremental Build of configuration Debug for project Assignment7_ads ****
 make all 
-Building file: ../src/Assignment6_ads.cpp
+Building file: ../src/Assignment7_ads.cpp
 Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment6_ads.d" -MT"src/Assignment6_ads.d" -o "src/Assignment6_ads.o" "../src/Assignment6_ads.cpp"
-../src/Assignment6_ads.cpp: In function ‘int main()’:
-../src/Assignment6_ads.cpp:154:10: warning: unused variable ‘n’ [-Wunused-variable]
-  int opt,n;
-          ^
-Finished building: ../src/Assignment6_ads.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment7_ads.d" -MT"src/Assignment7_ads.d" -o "src/Assignment7_ads.o" "../src/Assignment7_ads.cpp"
+../src/Assignment7_ads.cpp: In function ‘int main()’:
+../src/Assignment7_ads.cpp:188:11: warning: unused variable ‘n’ [-Wunused-variable]
+Finished building: ../src/Assignment7_ads.cpp
+   int opt,n;
+           ^
  
-Building target: Assignment6_ads
+Building target: Assignment7_ads
 Invoking: GCC C++ Linker
-g++  -o "Assignment6_ads"  ./src/Assignment6_ads.o   
-Finished building target: Assignment6_ads
+g++  -o "Assignment7_ads"  ./src/Assignment7_ads.o   
+Finished building target: Assignment7_ads
  
-09:46:17 **** Incremental Build of configuration Debug for project Assignment6_ads ****
+09:59:33 **** Incremental Build of configuration Debug for project Assignment7_ads ****
 make all 
 make: Nothing to be done for `all'.

@@ -185,48 +185,51 @@ prev=curr;
 };
 int main() {
 	hash h;
-	int opt,n;
-	string k,v;
-	while(1)
-	{
-		cout<<"1.Insert key 2.Delete key 3.find key 4.print map 5.exit"<<endl;
-			cin>>opt;
-			switch(opt)
-			{
-			case 1:
-			{
-				cout<<"enter key and val"<<endl;
-				cin>>k>>v;
-				h.hashh(k,v);
-				break;
-			}
-			case 2:
+		int opt,n;
+		string k,v;
+		while(1)
+		{
+			cout<<"1.Insert key 2.Delete key 3.find key 4.print map 5.exit"<<endl;
+				cin>>opt;
+				switch(opt)
+				{
+				case 1:
+				{
+					cout<<"enter key and val"<<endl;
+					cin>>k>>v;
+					h.hashh(k,v);
+					break;
+				}
+				case 2:
 
-			{
+				{
 
-				cout<<"enter key"<<endl;
-								cin>>k;
-								h.del(k);
-								break;
-			}
-			case 3:
-			{
-				cout<<"enter key"<<endl;
-				cin>>k;
-				h.find(k);
-				break;
+					cout<<"enter key"<<endl;
+									cin>>k;
+									h.del(k);
+									break;
+				}
+				case 3:
+				{
+					cout<<"enter key"<<endl;
+					cin>>k;
+					h.find(k);
 
-			}
-			case 4:
-			{
-				h.print();
-				break;
-			}
-			case 5:
-			{
-				return 0;
-			}
-			}
+					break;
+
+				}
+				case 4:
+				{
+					h.print();
+					break;
+				}
+				case 5:
+				{
+					return 0;
+				}
+				}
+		}
+		return 0;
 	}
-	return 0;
+
 }

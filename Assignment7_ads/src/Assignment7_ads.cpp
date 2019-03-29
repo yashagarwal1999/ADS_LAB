@@ -102,6 +102,12 @@ with(k,v,k1);
 			}
 			int k1=sum%100;
 			node* t=arr[k1];
+if(t==NULL)
+{
+				cout<<"NOT FOUND"<<endl;
+return;
+}
+
 			while(t->next!=NULL && t->key1!=k)
 			{
 				t=t->next;
@@ -127,19 +133,33 @@ with(k,v,k1);
 				it=(it+1)%26;
 			}
 			int k1=sum%100;
+cout<<k1<<endl;
 			if(arr[k1]==NULL)
 			{
 				cout<<"Key not present"<<endl;
 				return;
 			}
 			node *curr=arr[k1],*prev=NULL;
+if(curr->next==NULL)
+{
+arr[k1]=NULL;
+delete(curr);
+return;
+}
+if(curr->key1==k)
+{
+arr[k1]=curr->next;
+delete(curr);
+return;
+}
 			while(curr!=NULL)
 			{
+prev=curr;
 				if(curr->key1==k)
 				{
 					break;
 				}
-				prev=curr;
+
 				curr=curr->next;
 
 			}
@@ -165,47 +185,51 @@ with(k,v,k1);
 };
 int main() {
 	hash h;
-	int opt,n;
-	string k,v;
-	while(1)
-	{
-		cout<<"1.Insert key 2.Delete key 3.find key 4.print map 5.exit"<<endl;
-			cin>>opt;
-			switch(opt)
-			{
-			case 1:
-			{
-				cout<<"enter key and val"<<endl;
-				cin>>k>>v;
-				h.hashh(k,v);
-				break;
-			}
-			case 2:
+		int opt,n;
+		string k,v;
+		while(1)
+		{
+			cout<<"1.Insert key 2.Delete key 3.find key 4.print map 5.exit"<<endl;
+				cin>>opt;
+				switch(opt)
+				{
+				case 1:
+				{
+					cout<<"enter key and val"<<endl;
+					cin>>k>>v;
+					h.hashh(k,v);
+					break;
+				}
+				case 2:
 
-			{
+				{
 
-				cout<<"enter key"<<endl;
-								cin>>k;
-								h.del(k);
-								break;
-			}
-			case 3:
-			{
-				cout<<"enter key"<<endl;
-				cin>>k;
-				h.find(k);
+					cout<<"enter key"<<endl;
+									cin>>k;
+									h.del(k);
+									break;
+				}
+				case 3:
+				{
+					cout<<"enter key"<<endl;
+					cin>>k;
+					h.find(k);
 
-			}
-			case 4:
-			{
-				h.print();
-				break;
-			}
-			case 5:
-			{
-				return 0;
-			}
-			}
+					break;
+
+				}
+				case 4:
+				{
+					h.print();
+					break;
+				}
+				case 5:
+				{
+					return 0;
+				}
+				}
+		}
+		return 0;
 	}
-	return 0;
-}
+
+
